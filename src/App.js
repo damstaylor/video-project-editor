@@ -1,4 +1,4 @@
-import VideoProjectList from './components/VideoProjectList';
+import VideoProjectList from './components/VideoProjectList/VideoProjectList';
 import mock from './services/mock.json';
 import './App.css';
 
