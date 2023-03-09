@@ -1,0 +1,8 @@
+.VideoProjectItem--title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.font-secondary {
+  color: grey;
+}
