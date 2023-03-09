@@ -5,6 +5,10 @@
 
 }
 
+.App ul {
+  padding: 0;
+}
+
 .App li {
   text-align: justify;
 }
