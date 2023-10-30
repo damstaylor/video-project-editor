@@ -1,5 +1,6 @@
 import './VideoProjectItem.css';
 import {ListGroup, Badge} from "react-bootstrap";
+import sanitizeISODateString from "../../utils/utils";
 
 export default function VideoProjectItem({item}) {
   return (
@@ -11,7 +12,7 @@ export default function VideoProjectItem({item}) {
               <span>{item.name}</span>
             </div>
             <div className="VideoProjectItem--dates small font-secondary">
-              created on {new Date(item.creationDate).toLocaleDateString()}
+              created on {sanitizeISODateString(item.creationDate)}
             </div>
           </div>
           <div className="VideoProjectItem--author small">
