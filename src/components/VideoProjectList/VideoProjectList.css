@@ -1,3 +1,7 @@
 .VideoProjectList--header {
   text-align: justify;
 }
+
+.VideoProjectList ul {
+  list-style-type: none;
+}
