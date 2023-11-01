@@ -9,7 +9,8 @@ export default function VideoProjectItem({item}) {
         <li>
           <div className="VideoProjectItem--title-container">
             <div className="VideoProjectItem--title font-bold">
-              <span>{item.name}</span>
+              <span>{item.name}&nbsp;</span>
+              {item.isArchived ? <Badge pill bg="secondary">Archived</Badge> : null}
             </div>
             <div className="VideoProjectItem--dates small font-secondary">
               created on {sanitizeISODateString(item.creationDate)}

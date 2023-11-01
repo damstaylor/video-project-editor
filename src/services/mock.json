@@ -9,7 +9,7 @@
       "isArchived": false,
       "creationDate": "2023-03-09T14:00:00.000Z",
       "modificationDate": "2023-03-09T15:11:42.000Z",
-      "nbViews": 0
+      "nbViews": 4
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
       "type": "manual",
       "author": "Damien Sabo",
       "description": "This is my second project, this is a test.",
-      "isArchived": false,
+      "isArchived": true,
       "creationDate": "2023-03-09T15:00:00.000Z",
       "modificationDate": "2023-03-09T16:00:42.000Z",
       "nbViews": 0
@@ -39,7 +39,7 @@
       "type": "manual",
       "author": "Damien Sabo",
       "description": "This is my fourth project, this is a test.",
-      "isArchived": false,
+      "isArchived": true,
       "creationDate": "2023-03-09T16:30:00.000Z",
       "modificationDate": "2023-03-09T16:30:00.000Z",
       "nbViews": 0
