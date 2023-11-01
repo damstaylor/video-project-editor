@@ -12,6 +12,7 @@ export default function Project() {
   const project = loaderData.project;
   return (
     <>
+      <a href={`/projects/`}>&lt; Back to projects</a>
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
