@@ -10,8 +10,8 @@ export default function VideoProjectList({list}) {
         {list.length === 0 ?
           <span>No project found :(</span> :
           <ul>
-            {list.map((item, idx) => (
-              <VideoProjectItem key={idx} item={item}/>
+            {list.map(project => (
+              <VideoProjectItem key={project.id} item={project}/>
             ))}
           </ul>
         }
