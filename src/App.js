@@ -1,12 +1,11 @@
-import VideoProjectList from './components/VideoProjectList/VideoProjectList';
-import mock from './services/mock.json';
+import VideoProjectManager from './components/VideoProjectManager/VideoProjectManager';
 import './App.css';
 import 'holderjs';
 
 function App() {
   return (
     <div className="App">
-      <VideoProjectList list={mock.list} />
+      <VideoProjectManager />
     </div>
   );
 }
