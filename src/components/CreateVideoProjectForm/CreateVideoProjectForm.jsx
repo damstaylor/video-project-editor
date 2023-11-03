@@ -1,24 +1,7 @@
 import "./CreateVideoProjectForm.css";
-import {Button, Form} from "react-bootstrap";
-import {useState} from "react";
+import {Form} from "react-bootstrap";
 
-export default function CreateVideoProjectForm({onFormSubmit}) {
-  const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    type: 'auto'
-  });
-  const handleInput = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onFormSubmit(formData);
-  };
+export default function CreateVideoProjectForm({formData, handleInput, handleSubmit}) {
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -57,7 +40,6 @@ export default function CreateVideoProjectForm({onFormSubmit}) {
                       onChange={handleInput}
           />
         </Form.Group>
-        <Button type="submit">Submit</Button>
       </Form>
     </>
   );

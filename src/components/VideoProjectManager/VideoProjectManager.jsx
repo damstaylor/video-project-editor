@@ -9,34 +9,42 @@ export default function VideoProjectManager() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const onCreateNewProject = () => {
-    handleShow();
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    type: 'auto'
+  });
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
-  const handleFormSubmit = (formData) => {
-    const {name, description, type} = formData;
-    console.log("Call API with given parameters:", name, description, type);
+  const handleSubmit = () => {
     handleClose();
   };
   return (
     <>
-      <Button onClick={onCreateNewProject}>Create new project</Button>
+      <Button onClick={handleShow}>Create new project</Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create new video project</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <CreateVideoProjectForm onFormSubmit={handleFormSubmit} />
+          <CreateVideoProjectForm formData={formData} handleInput={handleInput} handleSubmit={handleSubmit} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button type="submit" variant="primary" onClick={handleSubmit}>
             Create project
           </Button>
         </Modal.Footer>
       </Modal>
       <VideoProjectList list={mock.list} />
+      <code>{JSON.stringify(formData)}</code>
     </>
   );
 }
