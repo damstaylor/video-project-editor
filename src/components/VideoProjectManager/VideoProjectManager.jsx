@@ -1,6 +1,6 @@
 import "./VideoProjectManager.css";
 import mock from "./../../services/mock.json";
-import {useState} from "react";
+import {useState, useRef} from "react";
 import VideoProjectList from "../VideoProjectList/VideoProjectList";
 import CreateVideoProjectForm from "../CreateVideoProjectForm/CreateVideoProjectForm";
 import {Button, Modal} from "react-bootstrap";
@@ -14,6 +14,8 @@ export default function VideoProjectManager() {
     description: '',
     type: 'auto'
   });
+  const [validated, setValidated] = useState(false);
+  const formRef = useRef(null);
   const handleInput = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -21,8 +23,16 @@ export default function VideoProjectManager() {
       [name]: value
     });
   };
-  const handleSubmit = () => {
-    handleClose();
+  const handleSubmit = (event) => {
+    setValidated(true);
+    const form = formRef.current;
+    if (form && form.getFormValidity()) {
+      console.log(formData);
+      handleClose();
+    } else {
+      event.preventDefault();
+      event.stopPropagation();
+    }
   };
   return (
     <>
@@ -32,7 +42,7 @@ export default function VideoProjectManager() {
           <Modal.Title>Create new video project</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <CreateVideoProjectForm formData={formData} handleInput={handleInput} handleSubmit={handleSubmit} />
+          <CreateVideoProjectForm ref={formRef} formData={formData} validated={validated} handleInput={handleInput} handleSubmit={handleSubmit} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -44,7 +54,6 @@ export default function VideoProjectManager() {
         </Modal.Footer>
       </Modal>
       <VideoProjectList list={mock.list} />
-      <code>{JSON.stringify(formData)}</code>
     </>
   );
 }
