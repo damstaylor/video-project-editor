@@ -3,7 +3,8 @@ import mock from "./../../services/mock.json";
 import {useState, useRef} from "react";
 import VideoProjectList from "../VideoProjectList/VideoProjectList";
 import CreateVideoProjectForm from "../CreateVideoProjectForm/CreateVideoProjectForm";
-import {Button, Modal} from "react-bootstrap";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import {Button} from "react-bootstrap";
 
 export default function VideoProjectManager() {
   const [show, setShow] = useState(false);
@@ -24,6 +25,7 @@ export default function VideoProjectManager() {
     });
   };
   const handleSubmit = (event) => {
+    console.log("handleSubmit")
     setValidated(true);
     const form = formRef.current;
     if (form && form.getFormValidity()) {
@@ -37,22 +39,17 @@ export default function VideoProjectManager() {
   return (
     <>
       <Button onClick={handleShow}>Create new project</Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create new video project</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <CreateVideoProjectForm ref={formRef} formData={formData} validated={validated} handleInput={handleInput} handleSubmit={handleSubmit} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button type="submit" variant="primary" onClick={handleSubmit}>
-            Create project
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ConfirmationModal show={show}
+                        title="Create new video project"
+                        handleSubmit={handleSubmit}
+                        handleClose={handleClose}
+      >
+          <CreateVideoProjectForm ref={formRef}
+                                  formData={formData}
+                                  validated={validated}
+                                  handleInput={handleInput}
+          />
+      </ConfirmationModal>
       <VideoProjectList list={mock.list} />
     </>
   );

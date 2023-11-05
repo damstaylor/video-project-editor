@@ -39,14 +39,14 @@ export default function Project() {
         {modalOptions?.content}
       </ConfirmationModal>
       <a href={`/projects/`}>&lt; Back to projects</a>
-      <Card style={{ width: '18rem' }}>
+      <Card className="Project" style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>{project.name}</Card.Title>
           <Card.Text>{project.description}</Card.Text>
         </Card.Body>
-        <Card.Footer>
-          <div onClick={openDeleteConfirmationModal}>Delete project</div>
+        <Card.Footer className="Project--footer">
+          <div className="Project--link" onClick={openDeleteConfirmationModal}>Delete project</div>
         </Card.Footer>
       </Card>
     </>

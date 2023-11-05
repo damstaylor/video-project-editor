@@ -2,7 +2,7 @@ import "./CreateVideoProjectForm.css";
 import React, {useEffect, useRef} from "react";
 import {Form} from "react-bootstrap";
 
-const CreateVideoProjectForm = React.forwardRef(({formData, validated, handleInput, handleSubmit}, ref) => {
+const CreateVideoProjectForm = React.forwardRef(({formData, validated, handleInput}, ref) => {
   const formRef = useRef(null);
   useEffect(() => {
     if (ref) {
@@ -13,7 +13,7 @@ const CreateVideoProjectForm = React.forwardRef(({formData, validated, handleInp
   }, [ref]);
   return (
     <>
-      <Form noValidate ref={formRef} validated={validated} onSubmit={handleSubmit}>
+      <Form noValidate ref={formRef} validated={validated}>
         <Form.Group className="mb-3" controlId="nameCreateVideoProject">
           <Form.Label>Name</Form.Label>
           <Form.Control required
