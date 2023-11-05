@@ -12,8 +12,11 @@ export default function VideoProjectItem({item}) {
               <span>{item.name}&nbsp;</span>
               {item.isArchived ? <Badge pill bg="secondary">Archived</Badge> : null}
             </div>
-            <div className="VideoProjectItem--dates small font-secondary">
-              created on {sanitizeISODateString(item.creationDate)}
+            <div>
+              <div className="VideoProjectItem--dates small font-secondary">
+                created on {sanitizeISODateString(item.creationDate)}
+              </div>
+              <div className="small font-secondary">👁 {item.nbViews} views</div>
             </div>
           </div>
           <div className="VideoProjectItem--author small">
