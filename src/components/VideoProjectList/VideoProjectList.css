@@ -1,3 +1,17 @@
+.VideoProjectList--search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.VideoProjectList--search-bar > div, .VideoProjectList--search-bar > span {
+  position: relative;
+  right: 24px;
+}
+
+.VideoProjectList--close-icon {
+  cursor: pointer;
+}
+
 .VideoProjectList--header {
   text-align: justify;
 }
