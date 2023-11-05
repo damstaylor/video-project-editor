@@ -8,8 +8,20 @@
   right: 24px;
 }
 
-.VideoProjectList--close-icon {
+.VideoProjectList--badge-row {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0;
+}
+
+.VideoProjectList--close-icon, [class*="VideoProjectList--"].badge.rounded-pill {
   cursor: pointer;
+  border: 2px solid var(--bs-secondary);
+}
+
+.VideoProjectList--pill-off {
+  background-color: white !important;
+  color: var(--bs-secondary);
 }
 
 .VideoProjectList--header {
