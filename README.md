@@ -2,7 +2,7 @@
 
 (WIP)
 
-An editor for creating, listing and managing online video projects.
+A project editor made with React & React Bootstrap for creating, listing and managing online video projects.
 
 A project has classic metadata such as a name, an author, a creation date, a number of views, a description, and a type (automated or manually edited by an editor).
 
