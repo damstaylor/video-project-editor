@@ -1,6 +1,6 @@
 import mock from '../services/mock.json';
 import {Card} from 'react-bootstrap';
-import {useLoaderData} from "react-router-dom";
+import {Link, useLoaderData} from 'react-router-dom';
 import {useState} from "react";
 import ConfirmationModal from "../components/ConfirmationModal/ConfirmationModal";
 
@@ -38,7 +38,7 @@ export default function Project() {
       >
         {modalOptions?.content}
       </ConfirmationModal>
-      <a href={`/projects/`}>&lt; Back to projects</a>
+      <Link to="/projects">&lt; Back to projects</Link>
       <Card className="Project" style={{ width: '18rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
